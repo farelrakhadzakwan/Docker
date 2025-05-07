@@ -7,13 +7,14 @@ Official website from docker that has many images to use in most of the projects
 
 ## Segmentation Chapter
 ### Docker Image
-> docker pull {image:tag}
+```
+docker pull {image:tag}
 docker images
 docker ps
 docker ps -a
 docker image rm {image:tag}
 docker image rmi {image:tag}
-
+```
 ### Docker Container 
 docker run -d {image:tag}
 docker run -d --name {new_name} {image:tag}
