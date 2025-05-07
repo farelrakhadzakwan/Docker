@@ -7,7 +7,7 @@ Official website from docker that has many images to use in most of the projects
 
 ## Segmentation Chapter
 ### Docker Image
-docker pull {image:tag}
+> docker pull {image:tag}
 docker images
 docker ps
 docker ps -a
