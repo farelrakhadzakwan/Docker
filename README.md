@@ -79,8 +79,99 @@ docker inspect {nameImage/nameContainer/nameNetwork:tag} / {id/name}
 docker run --rm -d --name {nameContainer} --cpus="0.1" --memory="10m" -p {hostPort:containerPort} {image:tag}
 ```
 
+## [Belajar Docker Dockerfile](https://youtu.be/wzhMyulKlkA?si=hqqs5SfZn7HNI-Ue)
 
+### Dockerfile
+```
+docker build -t {name:tag} .
+docker build -f {path-to-Dockerfile} -t {image-name} {build-context}
+docker build -f ./docker/Dockerfile.dev -t my-app:dev .
+docker build -t nginx-ku:latest .
+docker build -f ./tmp/tmp -t nginx-ku .
+```
 
+### Format Dockerfile
+```
+INSTRUCTION arguments
+FROM nginx:alpine
+RUN apk update && apk add vim curl
+```
+
+### INSTRUCTION Label
+```
+LABEL {}
+LABEL version="1.0"
+LABEL "Dibuat oleh"=rakha
+LABEL tahun=2023
+```
+
+### ADD Instruction
+```
+ADD {source} {destination}
+ADD about.html /usr/share/nginx/html
+ADD *.html /usr/share/nginx/html
+```
+
+### COPY Instruction
+```
+COPY {source} {destination}
+COPY about.html /usr/share/nginx/html
+COPY *.html /usr/share/nginx/html
+```
+
+docker inspect image {image:tag}
+
+### Format .dockerignore
+```
+{nameFile}
+```
+
+### Expose Instruction
+```
+EXPOSE {port/(TCP/UDP)}
+```
+
+### ENV Instruction
+```
+ENV {nameEnvironment=version}
+ENV DB=test-database
+ENV DB_HOST=192.168.1.1
+docker run --rm -d --name {nameContainer} --env-file={envFile} {image:tag}
+docker run --rm -d --name nginx-ku --env-file=.env nginx-ku:latest
+```
+
+### ARG Instruction
+```
+ARG {nameArgument=version}
+ARG VERSION=1.0.0
+--build-arg={ARG=value}
+docker build -t {nameImages:tag} -q --build-arg={ARG=value}
+docker build -t {nameImages:tag} -q --build-arg=VERSION=1.0.0
+docker run --rm -d --name {nameContainer} --arg-build={envFile} {image:tag}
+docker run --rm -d --name nginx-ku --env-file=.env nginx-ku:latest
+```
+
+### WORKDIR Instruction
+```
+WORKDIR {folderPath}
+```
+
+### CMD Instruction
+```
+CMD ["executable","param1","param2"]
+CMD ["param1","param2"]
+CMD command param1 param2
+CMD echo "Rakha Ganteng"
+```
+
+### Entrypoint Instruction
+```
+ENTRYPOINT ["executable","param1","param2"]
+ENTRYPOINT command param1 param2
+ENTRYPOINT ["/bin/echo", "Aku belajar docker ogok ogok"]
+```
+
+Multi Stage
 
 
 
