@@ -4,7 +4,7 @@ Documentation of me using docker in my project, so that i can remember the comma
 ## Docker Hub
 Official website from docker that has many images to use in most of the projects [Docker Hub](https://hub.docker.com).
 
-## Segmentation Chapter
+## [Belajar Docker Fundamental](https://youtu.be/1CRRt7t1IKE?si=2dv-UIoZl22WTGQb)
 ### Docker Image
 ```
 docker pull {image:tag}
